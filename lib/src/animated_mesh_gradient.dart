@@ -58,8 +58,9 @@ class _AnimatedMeshGradientState extends State<AnimatedMeshGradient> {
     Future(() async {
       try {
         await ShaderBuilder.precacheShader(assetPath);
-      } catch (_) {
-        
+      } catch (err) {
+        debugPrint('[MESH_GRADIENT] [ERROR] Precaching Shader: $err'); 
+        debugPrintStack(stackTrace: StackTrace.current);
       }
     });
     if (widget.colors.length != 4) {

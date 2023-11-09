@@ -20,11 +20,20 @@ class MeshGradient extends StatefulWidget {
   State<MeshGradient> createState() => _MeshGradientState();
 }
 
-const String assetPath = 'packages/mesh_gradient/shaders/point_mesh_gradient.frag';
+const String assetPath =
+    'packages/mesh_gradient/shaders/point_mesh_gradient.frag';
 
 class _MeshGradientState extends State<MeshGradient> {
   @override
   void initState() {
+    Future(() async {
+      try {
+        await ShaderBuilder.precacheShader(assetPath);
+      } catch (err) {
+        debugPrint('[MESH_GRADIENT] [ERROR] Precaching Shader: $err');
+        debugPrintStack(stackTrace: StackTrace.current);
+      }
+    });
     super.initState();
   }
 
