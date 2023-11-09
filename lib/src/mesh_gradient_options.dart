@@ -1,5 +1,5 @@
 class MeshGradientOptions {
-  MeshGradientOptions({
+  const MeshGradientOptions({
     this.blend = 3,
   });
 

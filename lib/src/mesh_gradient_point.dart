@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class MeshGradientPoint {
-  MeshGradientPoint({
+  const MeshGradientPoint({
     required this.position,
     required this.color,
   });

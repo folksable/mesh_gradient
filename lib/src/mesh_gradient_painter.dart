@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mesh_gradient/src/mesh_gradient_options.dart';
 
 class MeshGradientPainter extends CustomPainter {
-  MeshGradientPainter({
+  const MeshGradientPainter({
     required this.shader,
     required this.points,
     required this.options,

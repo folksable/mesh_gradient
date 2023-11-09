@@ -1,5 +1,5 @@
 class AnimatedMeshGradientOptions {
-  AnimatedMeshGradientOptions({
+  const AnimatedMeshGradientOptions({
     this.frequency = 5,
     this.amplitude = 30,
     this.speed = 2,

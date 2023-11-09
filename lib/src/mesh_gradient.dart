@@ -20,6 +20,8 @@ class MeshGradient extends StatefulWidget {
   State<MeshGradient> createState() => _MeshGradientState();
 }
 
+const String assetPath = 'packages/mesh_gradient/shaders/point_mesh_gradient.frag';
+
 class _MeshGradientState extends State<MeshGradient> {
   @override
   void initState() {
@@ -29,7 +31,7 @@ class _MeshGradientState extends State<MeshGradient> {
   @override
   Widget build(BuildContext context) {
     return ShaderBuilder(
-      assetKey: 'packages/mesh_gradient/shaders/point_mesh_gradient.frag',
+      assetKey: assetPath,
       (context, shader, child) {
         return CustomPaint(
           painter: MeshGradientPainter(

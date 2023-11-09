@@ -3,6 +3,7 @@ import 'package:flutter_shaders/flutter_shaders.dart';
 import 'package:mesh_gradient/src/animated_mesh_gradient_controller.dart';
 import 'package:mesh_gradient/src/animated_mesh_gradient_options.dart';
 import 'package:mesh_gradient/src/animated_mesh_gradient_painter.dart';
+import 'package:mesh_gradient/src/mesh_gradient.dart';
 
 class AnimatedMeshGradient extends StatefulWidget {
   /// Creates a meshed gradient with provided colors and animates between them.
@@ -54,6 +55,13 @@ class _AnimatedMeshGradientState extends State<AnimatedMeshGradient> {
 
   @override
   void initState() {
+    Future(() async {
+      try {
+        await ShaderBuilder.precacheShader(assetPath);
+      } catch (_) {
+        
+      }
+    });
     if (widget.colors.length != 4) {
       throw Exception(
           'Condition colors.length == 4 is not true. Assign exactly 4 colors.');
@@ -83,7 +91,7 @@ class _AnimatedMeshGradientState extends State<AnimatedMeshGradient> {
   @override
   Widget build(BuildContext context) {
     return ShaderBuilder(
-      assetKey: 'packages/mesh_gradient/shaders/animated_mesh_gradient.frag',
+      assetKey: assetPath,
       (context, shader, child) {
         return CustomPaint(
           painter: AnimatedMeshGradientPainter(
